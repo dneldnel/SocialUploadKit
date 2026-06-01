@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "social-upload-kit"
+version = "0.1.0"
+description = "Project-independent Douyin and Xiaohongshu browser upload toolkit extracted from VideoLingo."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "VideoLingo maintainers" }]
+dependencies = [
+  "cloakbrowser>=0.3.31",
+  "patchright>=1.59.1",
+]
+
+[project.optional-dependencies]
+playwright = ["playwright>=1.44"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+social-upload = "social_upload.cli.sau_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["social_upload*"]
